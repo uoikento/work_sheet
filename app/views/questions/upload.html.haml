@@ -1,0 +1,30 @@
+.wrapper
+  = render 'shared/head'
+  .new 
+    Vote-form
+  .new-form
+    .form-question
+      %label.form-question-head
+        Role
+      .form-question-input
+        %input{type: "text", class: "half-form", placeholder: "a"}
+    .form-option
+      %label.form-option-head
+        Option
+      .form-option-input
+        %input{type: "checkbox", class: "default-checkbox", placeholder: "a"}
+        %input{type: "checkbox", class: "default-checkbox", placeholder: "a"}
+        %br/
+        %input{type: "checkbox", class: "default-checkbox", placeholder: "a"}
+        %input{type: "checkbox", class: "default-checkbox", placeholder: "a"}
+        %br/
+        %input{type: "checkbox", class: "default-checkbox", placeholder: "a"}
+        %input{type: "checkbox", class: "default-checkbox", placeholder: "a"}
+        %br/
+        %input{type: "checkbox", class: "default-checkbox", placeholder: "a"}
+        %input{type: "checkbox", class: "default-checkbox", placeholder: "a"}
+        %br/
+        %input{type: "checkbox", class: "default-checkbox", placeholder: "a"}
+        %input{type: "checkbox", class: "default-checkbox", placeholder: "a"}
+    .form-submit
+      %input{type: "submit", class: "default-submit", value: "vote"}

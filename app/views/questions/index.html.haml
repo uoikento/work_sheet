@@ -1,0 +1,26 @@
+.wrapper
+  = render 'shared/head'
+  .q-index-main
+    .q-i-main-head
+      %p Agenda
+    .questions
+      .question
+        .question__content
+          問題
+        .question__answer
+          = link_to "#" do
+            Answer
+        .question__result
+          = link_to "#" do
+            Result
+      .question
+        .question__content
+          問題
+        .question__answer
+          =link_to "#" do
+            Answer
+        .question__result
+          = link_to "#" do
+            Result
+  = render 'shared/foot'
+
