@@ -1,0 +1,16 @@
+ul.q-show-main__detail {
+  li.option-result{
+    display: inline-block;
+  }
+}
+.q-show-main {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  &__head {
+    font-size: 20px;
+  }
+  &__graph {
+
+  }
+}
