@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Homemade+Apple");
+.q-index-main {
+  height: 60%;
+  margin: 0 auto;
+  width: 80%;
+  background-color: rgb(193, 228, 112);
+  .q-i-m-head {
+    background-color: aquamarine;
+    height: 20%;
+    p {
+      text-align: center;
+      font-size: 20px;
+      padding: 15px 0;
+    }
+  }
+  .questions {
+    height: 80%;
+    margin: 0 auto;
+    width: 90%;
+    .question {
+      height: 15%;
+      display: flex;
+      padding-top: 1em;
+      &__content {
+        width: 80%;
+      }
+      &__answer {
+        width: 10%;
+      }
+      &__result {
+        width: 10%;
+      }
+    }
+  }
+}

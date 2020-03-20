@@ -1,0 +1,36 @@
+.new-form {
+  // background-color: rgb(225, 225, 224);
+  margin: 0 auto;
+  height: 80%;
+  width: 50%;
+  padding: 10px 20px;
+  .form-question {
+    height: 20%;
+    .form-question-head {
+
+    }
+    .form-question-input {
+
+    }
+  }
+  .form-option {
+    height: 40%;
+    .form-option-head {
+
+    }
+    .form-option-input {
+      height: 100%;
+      text-align: center;
+      padding: 5px 20px;
+    }
+  }
+  .form-submit {
+    height: 20%;
+    text-align: center;
+  }
+  
+}
+.new {
+  text-align: center;
+  font-size: 30px;
+}

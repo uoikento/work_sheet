@@ -1,0 +1,30 @@
+.wrapper
+  = render 'shared/head'
+  .new
+    form
+  .new-form
+    .form-question
+      %label.form-question-head
+        Question
+      .form-question-input
+        %input{type: "text", class: "default-form", placeholder: "a"}
+    .form-option
+      %label.form-option-head
+        Option
+      .form-option-input
+        %input{type: "text", class: "half-form", placeholder: "a"}
+        %input{type: "text", class: "half-form", placeholder: "a"}
+        %br/
+        %input{type: "text", class: "half-form", placeholder: "a"}
+        %input{type: "text", class: "half-form", placeholder: "a"}
+        %br/
+        %input{type: "text", class: "half-form", placeholder: "a"}
+        %input{type: "text", class: "half-form", placeholder: "a"}
+        %br/
+        %input{type: "text", class: "half-form", placeholder: "a"}
+        %input{type: "text", class: "half-form", placeholder: "a"}
+        %br/
+        %input{type: "text", class: "half-form", placeholder: "a"}
+        %input{type: "text", class: "half-form", placeholder: "a"}
+    .form-submit
+      %input{type: "submit", class: "default-submit", value: "create"}
