@@ -3,28 +3,19 @@
   .new
     form
   .new-form
-    .form-question
-      %label.form-question-head
-        Question
-      .form-question-input
-        %input{type: "text", class: "default-form", placeholder: "a"}
-    .form-option
-      %label.form-option-head
-        Option
-      .form-option-input
-        %input{type: "text", class: "half-form", placeholder: "a"}
-        %input{type: "text", class: "half-form", placeholder: "a"}
-        %br/
-        %input{type: "text", class: "half-form", placeholder: "a"}
-        %input{type: "text", class: "half-form", placeholder: "a"}
-        %br/
-        %input{type: "text", class: "half-form", placeholder: "a"}
-        %input{type: "text", class: "half-form", placeholder: "a"}
-        %br/
-        %input{type: "text", class: "half-form", placeholder: "a"}
-        %input{type: "text", class: "half-form", placeholder: "a"}
-        %br/
-        %input{type: "text", class: "half-form", placeholder: "a"}
-        %input{type: "text", class: "half-form", placeholder: "a"}
-    .form-submit
-      %input{type: "submit", class: "default-submit", value: "create"}
+    = form_for @question do |f|
+      .form-question
+        %label.form-question-head
+          Question
+        .form-question-input
+          = f.text_field :title, class: "default-form", placeholder: "a"
+      .form-option
+        %label.form-option-head
+          Option
+        .form-option-input
+          #option-box
+            = f.fields_for :options do |i|
+              .js-file_group{"data-index" => "#{i.index}"}
+              = i.text_field :title, class: "half-form", placeholder: "a"
+      .form-submit
+        = f.submit 'create', class: "default-submit"

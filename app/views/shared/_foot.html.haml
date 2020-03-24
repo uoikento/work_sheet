@@ -1,9 +1,14 @@
 .footer
   .content
     アンケート作成はログインしてね
-    .content__question-create
-      = link_to "#" do
-        create
-    .content__login
-      = link_to "#" do
-        login
+    - if user_signed_in?
+      .content__logout
+        = link_to destroy_user_session_path, method: :delete do
+          logout
+    - else
+      .content__question-create
+        = link_to "#" do
+          create
+      .content__login
+        = link_to new_user_session_path do
+          login
