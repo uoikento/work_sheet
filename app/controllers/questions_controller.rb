@@ -28,7 +28,15 @@ class QuestionsController < ApplicationController
     # 回答数
     @votes_sum = Vote.where(question_id: @question).count
 
-    # @vote_sum = count_vote(@question).count
+    # 実験
+    @option_ids = @option.pluck("id")
+    @vote_sum = []
+    @option.each do |o|
+      @vote_sum << Vote.where(question_id: @question).where(option_id: o).count
+    end
+    @vote_title = @option.pluck("title")
+    @vote_result = Hash[@vote_title, @vote_sum]
+    # binding.pry
   end
 
   private
@@ -36,3 +44,4 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:title, options_attributes: [:id, :title]).merge(user_id: current_user.id)
   end
 end
+
