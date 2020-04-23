@@ -2,12 +2,19 @@
   = render 'shared/head'
   .q-show-main
     .q-show-main__head
-      Result
+      %label Q.
+      = @question.title
+      %p Result
     .q-show-main__graph
-      %ul.q-show-main__detail
+    %ul.q-show-main__detail
+      - @option.each do |o|
         %li.option-result
-          30%
-        %li.option-result
-          30%
-        %li.option-result
-          30%
+          = o.title
+          %span :
+          = Vote.where(question_id: @question, option_id: o).count * 100 / @votes_sum 
+          %span %
+      選択肢の数:
+      = @count
+      解答された回数:
+      = @votes_sum
+      

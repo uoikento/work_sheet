@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_20_092635) do
+ActiveRecord::Schema.define(version: 2020_04_12_094232) do
 
   create_table "options", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 2020_03_20_092635) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "role"
+    t.bigint "question_id"
+    t.bigint "option_id"
+    t.index ["option_id"], name: "index_votes_on_option_id"
+    t.index ["question_id"], name: "index_votes_on_question_id"
+  end
+
   add_foreign_key "options", "questions"
   add_foreign_key "questions", "users"
+  add_foreign_key "votes", "options"
+  add_foreign_key "votes", "questions"
 end

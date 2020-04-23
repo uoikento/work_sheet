@@ -7,15 +7,15 @@
         = link_to new_question_path do
           New Question
     .questions
-      - @questions.each do |q|
+      - @questions.each do |question|
         .question
           .question__content
-            = q.title
+            = question.title
           .question__answer
-            = link_to  do
-              Answer
+            = link_to new_question_vote_path(question) do
+              Vote
           .question__result
-            = link_to "#" do
+            = link_to question_path(question), method: :get do
               Result
   = render 'shared/foot'
 
