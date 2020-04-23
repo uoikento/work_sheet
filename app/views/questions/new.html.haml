@@ -14,8 +14,9 @@
           Option
         .form-option-input
           #option-box
-            = f.fields_for :options do |i|
-              .js-file_group{"data-index" => "#{i.index}"}
-              = i.text_field :title, class: "half-form", placeholder: "a"
+            = f.fields_for :options do |op|
+              = render 'option_fields', f: op
+              .links
+                = link_to_add_association '+', f, :options
       .form-submit
         = f.submit 'create', class: "default-submit"

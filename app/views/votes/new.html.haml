@@ -1,0 +1,28 @@
+.wrapper
+  = render 'shared/head'
+  .new 
+    .error-box
+      - if @vote.errors.any?
+        Retry!
+    Vote-form
+    %br/
+    %label Q.
+    = @question.title
+  .new-form
+    = form_for [@question, @vote] do |f| 
+      .form-question
+        %label.form-question-head
+          Role 
+        .form-question-input
+          = f.select :role, Vote.roles.keys.to_a, {include_blank: true}, class: "half-form", placeholder: "a"
+      .form-option
+        %label.form-option-head
+          Option
+        .form-option-input
+          -#選択したquestionの選択肢達を取得
+          - @options.each do |options|
+            -# Voteテーブルのoption_idカラムに選択された選択肢のidを収納
+            = f.radio_button :option_id, options.id
+            = f.label :"vote_option_#{options.id}", "#{options.title}"
+      .form-submit
+        = f.submit "vote", class: "default-submit"
