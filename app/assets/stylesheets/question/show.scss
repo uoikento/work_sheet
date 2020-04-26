@@ -21,4 +21,11 @@ ul.q-show-main__detail {
 
     }
   }
+  &__delete {
+    margin-top: 15px;
+    a:-webkit-any-link {
+      color: crimson;
+      font-size: 20px;
+    }
+  }
 }

@@ -3,9 +3,7 @@
   height: 60%;
   margin: 0 auto;
   width: 80%;
-  // background-color: rgb(193, 228, 112);
   .q-i-main-head {
-    // background-color: aquamarine;
     height: 20%;
     p {
       text-align: center;
@@ -30,6 +28,9 @@
       &__result {
         width: 10%;
       }
+    }
+    .paginate-box {
+      text-align: center;
     }
   }
 }

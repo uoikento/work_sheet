@@ -1,14 +1,11 @@
 .footer
   .content
-    アンケート作成はログインしてね
+    アンケート作成をご希望の方はaaaaa.gmail.comへご連絡
     - if user_signed_in?
       .content__logout
         = link_to destroy_user_session_path, method: :delete do
           logout
     - else
-      .content__question-create
-        -# = link_to new_user_registration_path do
-        -#   new-create
       .content__login
         = link_to new_user_session_path do
           login

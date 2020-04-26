@@ -1,6 +1,5 @@
 .wrapper  {
   height: 1000px;
-  // background-color: rgb(238, 114, 31);
 }
 .header {
   font-size: 60px;
@@ -10,9 +9,17 @@
   font-family: 'Homemade Apple', cursive;
 }
 
+.footer {
+  height: 20%;
+  border-style: groove none none none;
+  padding: 0 5%;
+  .content {
+    color: #363636;
+    padding: 5%;
+  }
+}
+
 .default-form {
-  // height: 30px;
-  // width: 30%;
   margin-top: 5px;
   width: 100%;
   height: 40px;
@@ -20,8 +27,6 @@
   border-radius:6px 6px 6px 6px ;
 }
 .half-form {
-  // height: 30px;
-  // width: 30%;
   margin-top: 5px;
   width: 45%;
   height: 40px;

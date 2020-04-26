@@ -17,5 +17,7 @@
           .question__result
             = link_to question_path(question), method: :get do
               Result
+      .paginate-box
+        = paginate @questions
   = render 'shared/foot'
 
