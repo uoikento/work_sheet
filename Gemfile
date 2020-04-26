@@ -69,3 +69,4 @@ gem 'jquery-rails'
 gem 'cocoon'
 gem 'pry-rails'
 gem "chartkick"
+gem "kaminari"

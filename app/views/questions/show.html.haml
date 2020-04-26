@@ -29,5 +29,6 @@
           %br/
         .q-show-main__contents__graph
           = pie_chart @vote_result
-        
-      
+    .q-show-main__delete
+      = link_to question_path(@question), method: :delete, data: {confirm: "[Q.#{@question.title}] is delete"} do
+        Delete this Question 

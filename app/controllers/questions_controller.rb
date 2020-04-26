@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :login_check, {only: [:new, :create]}
   
   def index
-    @questions = Question.all
+    @questions = Question.all.page(params[:page]).per(5)
   end
 
   def new
@@ -20,6 +20,15 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question = Question.find(params[:id])
+    if @question.destroy
+      redirect_to delete_path
+    else
+      render :show
+    end
+  end
+
   def show
     @question = Question.find(params[:id])
     @option = @question.options
@@ -30,7 +39,6 @@ class QuestionsController < ApplicationController
     # 回答数
     @votes_sum = Vote.where(question_id: @question).count
 
-    # 実験
     @option_ids = @option.pluck("id")
     @vote_sum = []
     @option.each do |o|
@@ -49,7 +57,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, options_attributes: [:id, :title]).merge(user_id: current_user.id)
+    params.require(:question).permit(:title, options_attributes: [:id, :title, :_destroy]).merge(user_id: current_user.id)
   end
 
   def login_check

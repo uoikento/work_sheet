@@ -4,7 +4,6 @@ class VotesController < ApplicationController
     @vote = Vote.new
     @question = Question.find(params[:question_id])
     @options = Option.where(question_id: @question)
-    # binding.pry
     
   end
 
