@@ -68,3 +68,4 @@ gem 'erb2haml'
 gem 'jquery-rails'
 gem 'cocoon'
 gem 'pry-rails'
+gem "chartkick"
