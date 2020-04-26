@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
   
+  before_action :login_check, {only: [:new, :create]}
+  
   def index
     @questions = Question.all
   end
@@ -32,16 +34,28 @@ class QuestionsController < ApplicationController
     @option_ids = @option.pluck("id")
     @vote_sum = []
     @option.each do |o|
-      @vote_sum << Vote.where(question_id: @question).where(option_id: o).count
+      counts = Vote.where(question_id: @question).where(option_id: o).count
+      begin
+        calc_counts = counts * 100 / @votes_sum
+      rescue
+        return @vote_sum
+      end
+      @vote_sum << calc_counts
     end
     @vote_title = @option.pluck("title")
-    @vote_result = Hash[@vote_title, @vote_sum]
-    # binding.pry
+    vote_hash = [@vote_title, @vote_sum].transpose
+    @vote_result = Hash[*vote_hash.flatten]
   end
 
   private
   def question_params
     params.require(:question).permit(:title, options_attributes: [:id, :title]).merge(user_id: current_user.id)
+  end
+
+  def login_check
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 end
 

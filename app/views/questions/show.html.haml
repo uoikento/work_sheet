@@ -5,19 +5,29 @@
       %label Q.
       = @question.title
       %p Result
-    .q-show-main__graph
-    %ul.q-show-main__detail
-      - @option.each do |o|
-        %li.option-result
-          = o.title
-          %span :
-          = Vote.where(question_id: @question, option_id: o).count * 100 / @votes_sum 
-          %span %
-      選択肢の数:
-      = @count
-      解答された回数:
-      = @votes_sum
-      %br/
-      = @vote_result.keys
-      = @vote_result.values
+    .q-show-main__contents
+      -# 投票されていない場合のエラーの回避（@vote_result空かどうか）
+      - if @vote_result.blank?
+        %ul.show-error
+          回答されていません
+          - @option.each do |o|
+            %li.option-result
+              = o.title
+              %span :
+              0
+              %span %
+      - else
+        %ul.q-show-main__contents__detail
+          - @option.each do |o|
+            %li.option-result
+              = o.title
+              %span :
+              = Vote.where(question_id: @question, option_id: o).count * 100 / @votes_sum 
+              %span %
+          解答された回数:
+          = @votes_sum
+          %br/
+        .q-show-main__contents__graph
+          = pie_chart @vote_result
+        
       

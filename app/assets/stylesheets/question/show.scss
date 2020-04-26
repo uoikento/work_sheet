@@ -10,7 +10,15 @@ ul.q-show-main__detail {
   &__head {
     font-size: 20px;
   }
-  &__graph {
+  &__contents {
+    // display: flex;
+    padding-top: 2%;
+    &__detail {
+      // width: 37%;
+      font-size: 15px;
+    }
+    &__graph {
 
+    }
   }
 }
