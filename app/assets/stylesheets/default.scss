@@ -7,6 +7,10 @@
   padding-bottom: 10px;
   text-align: center;
   font-family: 'Homemade Apple', cursive;
+  a:-webkit-any-link {
+    color: black;
+    text-decoration-line: none;
+  }
 }
 
 .footer {
