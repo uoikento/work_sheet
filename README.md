@@ -12,20 +12,21 @@ http://52.68.45.179
 ## DEMO
 https://gyazo.com/37682d4a376e9ecd7d7be849f6bd8459
 ## 工夫したポイント
-集計結果のグラフ化
+集計結果のグラフ化 
 ## 開発環境
-ruby 2.5.1
-rails 5.2.4
-DB:mysql
+ruby 2.5.1 
+rails 5.2.4 
+DB:mysql 
 
-aws
-アプリケーションサーバー:unicorn
-webサーバー:nginx
-自動デプロイ:capistrano
+aws 
+アプリケーションサーバー:unicorn 
+webサーバー:nginx 
+自動デプロイ:capistrano 
 
 ## 今後の課題
-ユーザーアカウントに階級の概念を持たせること
-より効率的なDB設計とそれに伴ったアンケートの集計に関するコードのリファクタリング
+ユーザーアカウントに階級の概念を持たせること 
+質問者アカウントでの検索機能
+より効率的なDB設計とそれに伴ったアンケートの集計に関するコードのリファクタリング 
 # DB設計
 ## User
 |Column|Type|Options|
