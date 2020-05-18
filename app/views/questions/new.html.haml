@@ -2,6 +2,9 @@
   = render 'shared/head'
   .new
     form
+    .error-box
+      - if @question.errors.any?
+        Please calmly input
   .new-form
     = form_for @question do |f|
       .form-question
