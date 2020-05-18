@@ -3,7 +3,12 @@
 コミュニティ内に向けたアンケートアプリ
 管理者が認めたユーザーのみが質問を作成でき、一般ユーザーは質問に対して投票し結果を閲覧できる
 - デプロイ先
+
 http://52.68.45.179
+- 質問作成アカウント 
+
+ID:aaaa@test.com 
+pass:111111 
 
 ## 制作背景
 全員が初対面のチーム開発においてチームとしての課題を知るまでに時間がかかってしまった。原因はコミュニケーション不足だと感じ、どういったメンバーのチームか事前に知ることができれば早期の課題発見に繋がるのではと考え、アンケートアプリ制作に至りました。
@@ -37,7 +42,7 @@ DB:mysql
 |email|string|null: false|
 |password|string|null: false|
 ### Association
-has_many: questions
+- has_many: questions
 
 ## Qustion
 |Column|Type|Options|
@@ -45,10 +50,10 @@ has_many: questions
 |title|string|null: false|
 |user_id|references|foreign_key: true|
 ### Association
-has_many: options
-has_many: votes
-belongs_to: user
-accepts_nested_attributes_for :options
+- has_many: options
+- has_many: votes
+- belongs_to: user
+- accepts_nested_attributes_for :options
 
 ## Option
 |Column|Type|Options|
@@ -56,8 +61,8 @@ accepts_nested_attributes_for :options
 |title|string||
 |question_id|references|foreign_key: true|
 ### Association
-has_many: votes
-belongs_to: question
+- has_many: votes
+- belongs_to: question
 
 ## Vote
 |Column|Type|Options|
@@ -65,8 +70,8 @@ belongs_to: question
 |role|integer||
 |question_id|references|foreign_key: true|
 |option_id|references|foreign_key: true|
-roleにはenumを使用
+- roleにはenumを使用
 ### Association
-belongs_to: question
-belongs_to: option
+- belongs_to: question
+- belongs_to: option
 
